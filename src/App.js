@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import ComplexNavbar from "./Components/Navbar";
+import FooterWithSitemap from "./Components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./Pages/Landing";
+import Preowned from "./Pages/Preowned";
+import Credit from "./Pages/Credit";
+import Rental from "./Pages/Rental";
+import AutoHitch from "./Pages/AutoHitch";
+import Carruso from "./Pages/Carruso";
+import SignIn from "./Pages/SignIn";
+import Register from "./Pages/SignUp";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ComplexNavbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="Seminuevos" element={<Preowned />} />
+          <Route path="Crédito" element={<Credit />} />
+          <Route path="Arrendamiento" element={<Rental />} />
+          <Route path="Auto enganche" element={<AutoHitch />} />
+          <Route path="Garantá carruso" element={<Carruso />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="IniciaSesion" element={<SignIn />} />
+          <Route path="RegístreseEn" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+      <FooterWithSitemap />
+    </>
   );
 }
-
-export default App;
